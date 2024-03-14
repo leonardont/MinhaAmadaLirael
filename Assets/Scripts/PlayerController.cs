@@ -7,9 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     Animator animator;
     public float speed;
-    public float groundDist;
+    // public float groundDist;
 
-    public LayerMask terrainLayer;
+    // public LayerMask terrainLayer;
     public Rigidbody rb;
     public SpriteRenderer rbSprite;
     public GameObject targetLanterna;
@@ -27,22 +27,24 @@ public class PlayerController : MonoBehaviour
         scene = SceneManager.GetActiveScene();
         if (scene.buildIndex == 2)
         {
-            RaycastHit hit;
-            Vector3 castPos = transform.position;
-            castPos.y += 1;
+            //código utiliazado para fazer com que a personagem "suba" em elevações do terreno, sem a necessidade de um cálculo extenso feito por nós!
+            // RaycastHit hit;
+            // Vector3 castPos = transform.position;
+            // castPos.y += 1;
 
-            if (Physics.Raycast(castPos, -transform.up, out hit, Mathf.Infinity, terrainLayer))
-            {
-                if (hit.collider != null)
-                {
-                    Vector3 movePos = transform.position;
-                    movePos.y = hit.point.y + groundDist;
-                    transform.position = movePos;
-                }
+            // if (Physics.Raycast(castPos, -transform.up, out hit, Mathf.Infinity, terrainLayer))
+            // {
+                // if (hit.collider != null)
+                // {
+                    // Vector3 movePos = transform.position;
+                    // movePos.y = hit.point.y + groundDist;
+                    // transform.position = movePos;
+                // }
 
                 float x = Input.GetAxis("Horizontal");
                 float y = Input.GetAxis("Vertical");
 
+                Debug.Log(x + " - " + y);
                 Vector3 moveDir = new Vector3(x, 0, y);
                 rb.velocity = moveDir * speed;
 
@@ -59,7 +61,7 @@ public class PlayerController : MonoBehaviour
                     animator.SetBool("isMoving", true);
                 else
                     animator.SetBool("isMoving", false);
-            }
+            // }
         }
     }
 }
