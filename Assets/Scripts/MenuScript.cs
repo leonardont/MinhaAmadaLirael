@@ -13,7 +13,7 @@ public class MenuScript : MonoBehaviour
 
     public void JogarButton()
     {
-        SceneManager.LoadScene(2, LoadSceneMode.Single);
+        SceneManager.LoadScene("Scene1", LoadSceneMode.Single);
     }
 
     public void mostrarOpcoesDuranteJogoButton()
@@ -23,7 +23,7 @@ public class MenuScript : MonoBehaviour
 
     public IEnumerator SetActive()
     {
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("SceneMenuJogo", LoadSceneMode.Additive);
         asyncOperation.allowSceneActivation = false;
         //When the load is still in progress, output the Text and progress bar
         while (!asyncOperation.isDone)

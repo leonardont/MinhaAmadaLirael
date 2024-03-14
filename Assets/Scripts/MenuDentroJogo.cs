@@ -8,7 +8,7 @@ public class MenuDentroJogo : MonoBehaviour
    
     public void voltarMenuButton()
     {
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        SceneManager.LoadScene("SceneMenu", LoadSceneMode.Single);
     }
 
     public void voltarJogoButton()
