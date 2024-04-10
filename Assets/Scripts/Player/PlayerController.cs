@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask terrainLayer;
     public Rigidbody rb;
     public SpriteRenderer sr;
-    
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
         }
-        
+
         if (x != 0 && x < 0)
         {
             sr.flipX = true;
@@ -58,6 +58,11 @@ public class PlayerController : MonoBehaviour
         {
             sr.flipX = false;
         }
+
+        if (Input.GetKeyDown("space"))
+            animator.SetBool("isJumping", true);
+         else
+            animator.SetBool("isJumping", false);
 
     }
 }
