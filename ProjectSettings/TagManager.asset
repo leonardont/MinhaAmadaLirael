@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Terrain
   - door1
+  - door3
+  - door4
   layers:
   - Default
   - TransparentFX

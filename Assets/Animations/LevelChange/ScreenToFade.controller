@@ -92,8 +92,8 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: FadeOut
-    m_Type: 9
+  - m_Name: level
+    m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -125,7 +125,7 @@ AnimatorStateMachine:
     m_Position: {x: 110, y: 230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4261046841716431131}
-    m_Position: {x: 540, y: 270, z: 0}
+    m_Position: {x: 460, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7383168814402116982}
     m_Position: {x: 310, y: 80, z: 0}

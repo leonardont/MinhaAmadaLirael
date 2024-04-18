@@ -100,7 +100,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3482858219064153839}
   - component: {fileID: 2018070937197745693}
-  - component: {fileID: 1476513578315835827}
   m_Layer: 0
   m_Name: ScreenToFade
   m_TagString: Untagged
@@ -145,20 +144,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1476513578315835827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1899409877611039103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 466aa162bece9ef469538cde62b992f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  animatorChangeLevel: {fileID: 0}
 --- !u!1 &5860794241519393472
 GameObject:
   m_ObjectHideFlags: 0

@@ -115,7 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6075262645803647212}
   - component: {fileID: 8802848629398203396}
-  - component: {fileID: 9029378977495444038}
+  - component: {fileID: 3626764278310123350}
   m_Layer: 0
   m_Name: Door
   m_TagString: door1
@@ -160,7 +160,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2.49
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &9029378977495444038
+--- !u!114 &3626764278310123350
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2436443776772587257}
   - component: {fileID: 463826542648195803}
-  - component: {fileID: 5820343846238055039}
+  - component: {fileID: 6348111614486152800}
   m_Layer: 0
   m_Name: Pivot
   m_TagString: Untagged
@@ -229,7 +229,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5820343846238055039
+--- !u!114 &6348111614486152800
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
