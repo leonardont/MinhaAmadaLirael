@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 moveDir = new Vector3(x, 0, y);
         rb.velocity = moveDir * speed;
+
         if (Mathf.Abs(rb.velocity.z) > 0)
         {
             animator.SetFloat("Speed", Mathf.Abs(rb.velocity.z));
