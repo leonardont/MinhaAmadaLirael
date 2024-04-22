@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rb;
     public SpriteRenderer sr;
 
+    private int lastZPosition;
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
@@ -41,6 +43,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 moveDir = new Vector3(x, 0, y);
         rb.velocity = moveDir * speed;
+
         if (Mathf.Abs(rb.velocity.z) > 0)
         {
             animator.SetFloat("Speed", Mathf.Abs(rb.velocity.z));
@@ -57,6 +60,25 @@ public class PlayerController : MonoBehaviour
         else if (x != 0 && x > 0)
         {
             sr.flipX = false;
+        }
+
+
+
+        if (y != 0 && y < 0)
+        {
+
+            animator.SetBool("isMovingFaceFront", true);
+            animator.SetBool("isMovingFaceBack", false);
+        }
+        else if (y != 0 && y > 0)
+        {
+            animator.SetBool("isMovingFaceBack", true);
+            animator.SetBool("isMovingFaceFront", false);
+        }
+        else
+        {
+            animator.SetBool("isMovingFaceBack", false);
+            animator.SetBool("isMovingFaceFront", false);
         }
 
         if (Input.GetKeyDown("space"))

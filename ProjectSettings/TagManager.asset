@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Terrain
+  - door1
+  - door3
+  - door4
   layers:
   - Default
   - TransparentFX
