@@ -66,7 +66,6 @@ public class PlayerController : MonoBehaviour
 
         if (y != 0 && y < 0)
         {
-
             animator.SetBool("isMovingFaceFront", true);
             animator.SetBool("isMovingFaceBack", false);
         }
@@ -81,9 +80,12 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isMovingFaceFront", false);
         }
 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Debug.Log("oi");
             animator.SetBool("isJumping", true);
-         else
+        }
+        else
             animator.SetBool("isJumping", false);
 
     }
