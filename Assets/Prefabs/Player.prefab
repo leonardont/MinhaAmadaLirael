@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3820777205743710240}
   - component: {fileID: 5911716431840103168}
   m_Layer: 0
-  m_Name: placeholder_0
+  m_Name: Lirael
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 982831858, guid: d4e24f882e43a864e8051572d5724cef, type: 3}
+  m_Sprite: {fileID: -1928316034, guid: d4e24f882e43a864e8051572d5724cef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 7979530305783250760}
   - component: {fileID: 5669026792134364552}
   - component: {fileID: 7928232412655585576}
-  - component: {fileID: 70953219930076425}
+  - component: {fileID: 3412185201110997814}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -135,7 +135,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -19.32, y: 1.22, z: -6.87}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6035519991363419256}
@@ -153,14 +153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929d32e1193876f439b20b3cbc0f4a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 5911716431840103168}
+  LevelManager: {fileID: 0}
+  Animator: {fileID: 5911716431840103168}
   speed: 7.5
-  groundDist: 1.4
-  terrainLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  rb: {fileID: 70953219930076425}
-  sr: {fileID: 3820777205743710240}
+  jumpSpeed: 7
 --- !u!65 &7928232412655585576
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -182,30 +178,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5911694, y: 2.7031069, z: 1}
   m_Center: {x: -0.011906624, y: 0.055124283, z: 0}
---- !u!54 &70953219930076425
-Rigidbody:
+--- !u!143 &3412185201110997814
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179669288643849202}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 1
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2.53
+  m_Radius: 1
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}

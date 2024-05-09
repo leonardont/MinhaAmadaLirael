@@ -3,11 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Terrain
-  - door1
-  - door3
-  - door4
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -16,10 +12,10 @@ TagManager:
   - Water
   - UI
   - Terrain
+  - LightBypass
+  - ParticleBypass
   - 
-  - 
-  - 
-  - 
+  - Obstacles
   - 
   - 
   - 
