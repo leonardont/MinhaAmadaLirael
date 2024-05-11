@@ -21,15 +21,37 @@ public class EnemyController : MonoBehaviour
     public float horizontalSpeed;
     public float depthSpeed;
     public float moveSpeed;
-    public int waitingTime;
-    public int walkingTime;
+    private int waitingTime;
+    public float walkingTime;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         enemyRb = GetComponent<Rigidbody>();
 
-        coroutine = MoveEnemy(horizontalSpeed, depthSpeed, waitingTime, walkingTime);
+        switch(PlayerPrefs.GetInt("difficulty"))
+        {
+            case 0:
+                waitingTime = 4;
+                break;
+
+            case 1:
+                waitingTime = 2;
+                break;
+
+            case 2:
+                waitingTime = 0;
+                break;
+
+            default:
+                waitingTime = 2;
+                break;
+        }
+
+        Vector3 positiveMove = new Vector3(horizontalSpeed, 0, depthSpeed).normalized * moveSpeed;
+        Vector3 negativeMove = new Vector3(-horizontalSpeed, 0, -depthSpeed).normalized * moveSpeed;
+
+        coroutine = MoveEnemy(positiveMove, negativeMove, waitingTime, walkingTime);
         StartCoroutine(coroutine);
     }
 
@@ -78,21 +100,18 @@ public class EnemyController : MonoBehaviour
         Animator.Play(newAnimation);
     }
 
-    private IEnumerator MoveEnemy(float horizontalSpeed, float depthSpeed, int waitingTime, int walkingTime)
+    private IEnumerator MoveEnemy(Vector3 positiveMove, Vector3 negativeMove, int waitingTime, float walkingTime)
     {
-        Vector3 positiveMove = new Vector3(horizontalSpeed, 0, depthSpeed).normalized * Time.deltaTime * moveSpeed;
-        Vector3 negativeMove = new Vector3(-horizontalSpeed, 0, -depthSpeed).normalized * Time.deltaTime * moveSpeed;
-
         while(true)
         {
             yield return new WaitForSeconds(waitingTime);
-            enemyRb.AddForce(positiveMove);
+            enemyRb.velocity = positiveMove;
             yield return new WaitForSeconds(walkingTime);
-            enemyRb.AddForce(negativeMove);
+            enemyRb.velocity = Vector3.zero;
             yield return new WaitForSeconds(waitingTime);
-            enemyRb.AddForce(negativeMove);
+            enemyRb.velocity = negativeMove;
             yield return new WaitForSeconds(walkingTime);
-            enemyRb.AddForce(positiveMove);
+            enemyRb.velocity = Vector3.zero;
         }
     }
 }

@@ -13,6 +13,7 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField] Slider volumeSlider;
     [SerializeField] TMPro.TMP_Dropdown graphicsDropdown;
+    [SerializeField] TMPro.TMP_Dropdown difficultyDropdown;
 
     public GameObject LoadingScreen;
 
@@ -35,6 +36,17 @@ public class MenuManager : MonoBehaviour
         if(!PlayerPrefs.HasKey("graphics"))
         {
             PlayerPrefs.SetInt("graphics", 1);
+            LoadData();
+        }
+        else
+        {
+            LoadData();
+        }
+
+        /// Verifica se o jogador já alterou os gráficos
+        if(!PlayerPrefs.HasKey("difficulty"))
+        {
+            PlayerPrefs.SetInt("difficulty", 1);
             LoadData();
         }
         else
@@ -79,6 +91,12 @@ public class MenuManager : MonoBehaviour
         QualitySettings.SetQualityLevel(qualityIndex);
         SaveData();
     }
+
+    public void SetDifficulty(int diffIndex)
+    {
+        PlayerPrefs.SetInt("difficulty", diffIndex);
+        SaveData();
+    }
     
     /// Carrega opções do jogador
     /// Volume e gráficos
@@ -86,6 +104,7 @@ public class MenuManager : MonoBehaviour
     {
         volumeSlider.value = PlayerPrefs.GetFloat("volume");
         graphicsDropdown.value = PlayerPrefs.GetInt("graphics");
+        difficultyDropdown.value = PlayerPrefs.GetInt("difficulty");
     }
 
     /// Salva opções do jogador
@@ -93,6 +112,7 @@ public class MenuManager : MonoBehaviour
     {
         PlayerPrefs.SetFloat("volume", volumeSlider.value);
         PlayerPrefs.SetInt("graphics", graphicsDropdown.value);
+        PlayerPrefs.SetInt("difficulty", difficultyDropdown.value);
     }
 
     /// Exclui todas as opções do jogador e também seu progresso no jogo

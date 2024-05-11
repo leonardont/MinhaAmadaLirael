@@ -172,6 +172,5 @@ MonoBehaviour:
   Animator: {fileID: 777494934572988520}
   horizontalSpeed: 0
   depthSpeed: 0
-  moveSpeed: 5000
-  waitingTime: 2
+  moveSpeed: 2
   walkingTime: 10

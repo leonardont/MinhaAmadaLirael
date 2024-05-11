@@ -17,11 +17,13 @@ public class FadeBehaviour : MonoBehaviour
 
     public void ShowUI()
     {
+        fadeOut = false;
         fadeIn = true;
     }
 
     public void HideUI()
     {
+        fadeIn = false;
         fadeOut = true;
     }
 
