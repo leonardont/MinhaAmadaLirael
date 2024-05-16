@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random=UnityEngine.Random;
 using UnityEngine.SceneManagement;
 using System;
 using Cinemachine;
@@ -23,6 +24,14 @@ public class Door : MonoBehaviour
 
     private int level;
 
+    public AudioSource audioSource;
+    public AudioClip[] openDoor;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         if (camera_move_enabled)
@@ -38,12 +47,38 @@ public class Door : MonoBehaviour
         if (collision.tag == "Player")
         {
             lmScript = LevelManager.GetComponent<LevelManager>();
-            lmScript.canMove = false;
-            TargetPosition.transform.position = new Vector3(TargetPosition.transform.position.x, TargetPosition.transform.position.y + 6, TargetPosition.transform.position.z - 8f);
-            TargetPosition.transform.rotation = Quaternion.Euler(25, 0, 0);
-            camera_move_enabled = true;
-            animator.SetBool("isOpen", true);
-            animatorChangeLevel.SetInteger("level", (TargetLevel % 1 == 0 ? TargetLevel : 1));
+
+            if (this.gameObject.tag == "door5")
+            {
+                if (lmScript.doorLocked != true)
+                {
+                    audioSource.PlayOneShot(openDoor[Random.Range(0, 2)]);
+
+                    lmScript.canMove = false;
+
+                    TargetPosition.transform.position = new Vector3(TargetPosition.transform.position.x, TargetPosition.transform.position.y + 6, TargetPosition.transform.position.z - 8f);
+                    TargetPosition.transform.rotation = Quaternion.Euler(25, 0, 0);
+
+                    camera_move_enabled = true;
+
+                    animator.SetBool("isOpen", true);
+                    animatorChangeLevel.SetInteger("level", (TargetLevel % 1 == 0 ? TargetLevel : 1));
+                }
+            }
+            else
+            {
+                audioSource.PlayOneShot(openDoor[Random.Range(0, 2)]);
+
+                lmScript.canMove = false;
+
+                TargetPosition.transform.position = new Vector3(TargetPosition.transform.position.x, TargetPosition.transform.position.y + 6, TargetPosition.transform.position.z - 8f);
+                TargetPosition.transform.rotation = Quaternion.Euler(25, 0, 0);
+
+                camera_move_enabled = true;
+
+                animator.SetBool("isOpen", true);
+                animatorChangeLevel.SetInteger("level", (TargetLevel % 1 == 0 ? TargetLevel : 1));
+            }
         }
     }
 

@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Terrain
+  - door1
+  - door2
+  - door4
+  - TextBalloon
+  - Glass
+  - Enemy
+  - Key1
+  - Key2
+  - door5
   layers:
   - Default
   - TransparentFX
@@ -16,7 +26,7 @@ TagManager:
   - ParticleBypass
   - 
   - Obstacles
-  - 
+  - PlayerTest
   - 
   - 
   - 
@@ -40,4 +50,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: PlayerTest
+    uniqueID: 1304052299
     locked: 0

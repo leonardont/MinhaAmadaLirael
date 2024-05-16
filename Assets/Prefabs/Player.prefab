@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6035519991363419256}
   - component: {fileID: 3820777205743710240}
   - component: {fileID: 5911716431840103168}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Lirael
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481189857331418132}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.06, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
@@ -71,9 +71,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1304052299
+  m_SortingLayer: 1
+  m_SortingOrder: 999
   m_Sprite: {fileID: -1928316034, guid: d4e24f882e43a864e8051572d5724cef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -116,8 +116,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7979530305783250760}
   - component: {fileID: 5669026792134364552}
-  - component: {fileID: 7928232412655585576}
   - component: {fileID: 3412185201110997814}
+  - component: {fileID: 5113897223078315697}
+  - component: {fileID: 7049436487963217781}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -157,27 +158,23 @@ MonoBehaviour:
   Animator: {fileID: 5911716431840103168}
   speed: 7.5
   jumpSpeed: 7
---- !u!65 &7928232412655585576
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179669288643849202}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.5911694, y: 2.7031069, z: 1}
-  m_Center: {x: -0.011906624, y: 0.055124283, z: 0}
+  textBalloonPrefab: {fileID: 1547685379391463111, guid: 4dc930fec5aac6149aa8abd93cbc268b,
+    type: 3}
+  collectParticles: {fileID: 6542894312384249877, guid: 65ea25daa5f65e744a70321a907d8b56,
+    type: 3}
+  keyCollectParticles: {fileID: 4534702170427580595, guid: 2a130c26c3c7ae948a88365ba52a6ab9,
+    type: 3}
+  audioSource: {fileID: 5113897223078315697}
+  jumpSound: {fileID: 8300000, guid: 9eeecd19bafb9304f91482ac1e0c5304, type: 3}
+  femaleGrunts:
+  - {fileID: 8300000, guid: 0779a50409fa4bb478b0475418fddafc, type: 3}
+  - {fileID: 8300000, guid: ebde3fbd7afca974aa79098b9380514e, type: 3}
+  - {fileID: 8300000, guid: 8efa1ab4f5f020b43864a80deaca5319, type: 3}
+  - {fileID: 8300000, guid: fcbc3ad1daa035142914bf53076b00d9, type: 3}
+  - {fileID: 8300000, guid: 60ba3cbc82364294a85894eabee8716a, type: 3}
+  collectGlass:
+  - {fileID: 8300000, guid: 8c0407a62bd203e4896aa2aa86e6774c, type: 3}
+  - {fileID: 8300000, guid: f42ea39ba4b673b45afe5abebdf7065a, type: 3}
 --- !u!143 &3412185201110997814
 CharacterController:
   m_ObjectHideFlags: 0
@@ -197,10 +194,133 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2.53
+  m_Height: 2.4
   m_Radius: 1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &5113897223078315697
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179669288643849202}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!54 &7049436487963217781
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179669288643849202}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
