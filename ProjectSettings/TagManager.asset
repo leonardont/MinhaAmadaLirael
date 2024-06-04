@@ -14,6 +14,10 @@ TagManager:
   - Key1
   - Key2
   - door5
+  - BossAttack
+  - BossObstacle
+  - Boss
+  - PowerUp
   layers:
   - Default
   - TransparentFX
@@ -26,7 +30,7 @@ TagManager:
   - ParticleBypass
   - 
   - Obstacles
-  - PlayerTest
+  - 
   - 
   - 
   - 
@@ -50,7 +54,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: PlayerTest
-    uniqueID: 1304052299
     locked: 0

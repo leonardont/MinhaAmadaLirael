@@ -15,44 +15,43 @@ public class MenuManager : MonoBehaviour
     [SerializeField] TMPro.TMP_Dropdown graphicsDropdown;
     [SerializeField] TMPro.TMP_Dropdown difficultyDropdown;
 
+    public GameObject LiraelAnim;
+    public Animator animator;
     public GameObject LoadingScreen;
 
     void Start()
     {
+        Time.timeScale = 1;
+        difficultyDropdown.value = PlayerPrefs.GetInt("difficulty");
+        LoadData();
+        
         audioSource = GetComponent<AudioSource>();
+        animator = LiraelAnim.GetComponent<Animator>();
+        animator.Play("liraelMenu");
 
-        /// Verifica se o jogador já alterou o volume
-        if(!PlayerPrefs.HasKey("volume"))
+        if (!PlayerPrefs.HasKey("volume"))
         {
             PlayerPrefs.SetFloat("volume", 0.5f);
-            LoadData();
-        }
-        else
-        {
-            LoadData();
         }
 
-        /// Verifica se o jogador já alterou os gráficos
-        if(!PlayerPrefs.HasKey("graphics"))
+        if (!PlayerPrefs.HasKey("graphics"))
         {
             PlayerPrefs.SetInt("graphics", 1);
-            LoadData();
-        }
-        else
-        {
-            LoadData();
         }
 
-        /// Verifica se o jogador já alterou os gráficos
-        if(!PlayerPrefs.HasKey("difficulty"))
+        if (!PlayerPrefs.HasKey("difficulty"))
         {
             PlayerPrefs.SetInt("difficulty", 1);
-            LoadData();
         }
-        else
-        {
-            LoadData();
-        }
+    }
+
+    /// Carrega opções do jogador
+    /// Volume e gráficos
+    private void LoadData()
+    {
+        volumeSlider.value = PlayerPrefs.GetFloat("volume");
+        graphicsDropdown.value = PlayerPrefs.GetInt("graphics");
+        difficultyDropdown.value = PlayerPrefs.GetInt("difficulty");
     }
 
     /// Carrega a primeira fase
@@ -82,50 +81,37 @@ public class MenuManager : MonoBehaviour
     public void SetVolume()
     {
         AudioListener.volume = volumeSlider.value;
-        SaveData();
+        PlayerPrefs.SetFloat("volume", volumeSlider.value);
+        PlayerPrefs.Save();
     }
 
     /// Define o nível de qualidade gráfica do jogo
     public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
-        SaveData();
+        PlayerPrefs.SetInt("graphics", qualityIndex);
+        PlayerPrefs.Save();
     }
 
+    /// Define o nível de dificuldade do jogo
     public void SetDifficulty(int diffIndex)
     {
         PlayerPrefs.SetInt("difficulty", diffIndex);
-        SaveData();
-    }
-    
-    /// Carrega opções do jogador
-    /// Volume e gráficos
-    private void LoadData()
-    {
-        volumeSlider.value = PlayerPrefs.GetFloat("volume");
-        graphicsDropdown.value = PlayerPrefs.GetInt("graphics");
-        difficultyDropdown.value = PlayerPrefs.GetInt("difficulty");
-    }
-
-    /// Salva opções do jogador
-    private void SaveData()
-    {
-        PlayerPrefs.SetFloat("volume", volumeSlider.value);
-        PlayerPrefs.SetInt("graphics", graphicsDropdown.value);
-        PlayerPrefs.SetInt("difficulty", difficultyDropdown.value);
+        PlayerPrefs.Save();
     }
 
     /// Exclui todas as opções do jogador e também seu progresso no jogo
     public void EraseData()
     {
         PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
     }
 
     private IEnumerator startGameFadeDelay()
     {
         yield return new WaitForSeconds(2);
 
-        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(1);
 
         LoadingScreen.SetActive(true);
     }

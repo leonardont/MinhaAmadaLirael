@@ -6,6 +6,8 @@ using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
+    public GameObject HUD;
+
     public int coinCount;
     public TextMeshProUGUI coinText;
 
@@ -24,27 +26,32 @@ public class LevelManager : MonoBehaviour
     public Transform door5;
 
     public bool doorLocked = true;
+
+    public GameObject LoadingScreen;
+    public GameObject PauseMenu;
     
     void Start()
     {
+        Time.timeScale = 1;
+        
         doorLocked = true;
         coinCount = PlayerPrefs.GetInt("CoinCount", 0);
 
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             lastRoomEntered = PlayerPrefs.GetInt("lastRoomEntered");
 
             switch(lastRoomEntered)
             {
-                case 2:
+                case 3:
                     player.transform.position = door3.position;
                     break;
 
-                case 3:
+                case 4:
                     player.transform.position = door4.position;
                     break;
 
-                case 4:
+                case 5:
                     player.transform.position = door5.position;
                     break;
 
@@ -58,7 +65,7 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        if (SceneManager.GetActiveScene().buildIndex == 2 || SceneManager.GetActiveScene().buildIndex == 3)
+        if (SceneManager.GetActiveScene().buildIndex == 3 || SceneManager.GetActiveScene().buildIndex == 4)
         {
             if (PlayerPrefs.GetInt("keyTopHalfCollected") == 1 && topHalfKey)
             {
@@ -74,10 +81,22 @@ public class LevelManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (PauseMenu.activeSelf)
+            {
+                Time.timeScale = 1;
+                PauseMenu.SetActive(false);
+            } else {
+                PauseMenu.SetActive(true);
+                Time.timeScale = 0;
+            }
+        }
+
         coinText = GameObject.Find("CoinCount").GetComponent<TextMeshProUGUI>();
         coinText.text = coinCount.ToString();
 
-        if (SceneManager.GetActiveScene().buildIndex != 4 && SceneManager.GetActiveScene().buildIndex != 0)
+        if (SceneManager.GetActiveScene().buildIndex != 5 && SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1)
         {
             if (PlayerPrefs.GetInt("keyTopHalfCollected") == 1)
             {
@@ -89,5 +108,25 @@ public class LevelManager : MonoBehaviour
                 bottomHalfKeyHUD.SetActive(true);
             }
         }
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+    }
+
+    public void RestartGame()
+    {
+        LoadingScreen.SetActive(true);
+        SceneManager.LoadSceneAsync(2);
+    }
+
+    public void GoToMenu()
+    {
+        HUD.SetActive(false);
+        LoadingScreen.SetActive(true);
+        Time.timeScale = 1;
+
+        SceneManager.LoadSceneAsync(0);
     }
 }

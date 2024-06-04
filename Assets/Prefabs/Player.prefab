@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6035519991363419256}
   - component: {fileID: 3820777205743710240}
   - component: {fileID: 5911716431840103168}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Lirael
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,9 +71,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1304052299
-  m_SortingLayer: 1
-  m_SortingOrder: 999
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
   m_Sprite: {fileID: -1928316034, guid: d4e24f882e43a864e8051572d5724cef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -165,16 +165,16 @@ MonoBehaviour:
   keyCollectParticles: {fileID: 4534702170427580595, guid: 2a130c26c3c7ae948a88365ba52a6ab9,
     type: 3}
   audioSource: {fileID: 5113897223078315697}
-  jumpSound: {fileID: 8300000, guid: 9eeecd19bafb9304f91482ac1e0c5304, type: 3}
-  femaleGrunts:
-  - {fileID: 8300000, guid: 0779a50409fa4bb478b0475418fddafc, type: 3}
-  - {fileID: 8300000, guid: ebde3fbd7afca974aa79098b9380514e, type: 3}
-  - {fileID: 8300000, guid: 8efa1ab4f5f020b43864a80deaca5319, type: 3}
-  - {fileID: 8300000, guid: fcbc3ad1daa035142914bf53076b00d9, type: 3}
-  - {fileID: 8300000, guid: 60ba3cbc82364294a85894eabee8716a, type: 3}
-  collectGlass:
-  - {fileID: 8300000, guid: 8c0407a62bd203e4896aa2aa86e6774c, type: 3}
-  - {fileID: 8300000, guid: f42ea39ba4b673b45afe5abebdf7065a, type: 3}
+  jumpSound: {fileID: 8300000, guid: 9b5753f2ba331ff4f8fffcb2bc9fc30d, type: 3}
+  femaleGrunt: {fileID: 8300000, guid: efe509a6d793405489b59cde388f7f24, type: 3}
+  keyCollect: {fileID: 8300000, guid: 900bd0bff00779440b26a7402470eff7, type: 3}
+  collectGlass: {fileID: 8300000, guid: 4b2f80c6b348f824f8d41241391f6f17, type: 3}
+  gameOverScreen: {fileID: 0}
+  deathMusic: {fileID: 8300000, guid: a71dd6806360f1147a73f41dc4348996, type: 3}
+  projectilePrefab: {fileID: 4081627898468711533, guid: 8b54c00ab2728b24c825e50d69cded01,
+    type: 3}
+  firePoint: {fileID: 6035519991363419256}
+  projectileSpeed: 500
 --- !u!143 &3412185201110997814
 CharacterController:
   m_ObjectHideFlags: 0

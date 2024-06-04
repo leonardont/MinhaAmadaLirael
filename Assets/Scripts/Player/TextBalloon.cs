@@ -9,6 +9,7 @@ public class TextBalloon : MonoBehaviour
     public string textSource;
     private SpriteRenderer backgroundSprite;
     private TextMeshPro textMeshPro;
+    public bool posLeftBool;
 
     private void Awake() 
     {
@@ -26,7 +27,22 @@ public class TextBalloon : MonoBehaviour
 
     void Update()
     {
-        this.transform.position = new Vector3(player.transform.position.x + 3f, player.transform.position.y + 2f, player.transform.position.z);
+        if (posLeftBool == true)
+        {
+            this.transform.position = new Vector3(player.transform.position.x - 3f, player.transform.position.y + 2f, player.transform.position.z - 1f);
+        } else {
+            this.transform.position = new Vector3(player.transform.position.x + 3f, player.transform.position.y + 2f, player.transform.position.z - 1f);
+        }
+    }
+
+    private void posLeft()
+    {
+        posLeftBool = true;
+    }
+
+    private void posRight()
+    {
+        posLeftBool = false;
     }
 
     private void Setup(string text)

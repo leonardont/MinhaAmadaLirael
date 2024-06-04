@@ -25,7 +25,7 @@ public class Door : MonoBehaviour
     private int level;
 
     public AudioSource audioSource;
-    public AudioClip[] openDoor;
+    public AudioClip openDoor;
 
     void Start()
     {
@@ -52,7 +52,7 @@ public class Door : MonoBehaviour
             {
                 if (lmScript.doorLocked != true)
                 {
-                    audioSource.PlayOneShot(openDoor[Random.Range(0, 2)]);
+                    audioSource.PlayOneShot(openDoor, 0.25f);
 
                     lmScript.canMove = false;
 
@@ -67,7 +67,7 @@ public class Door : MonoBehaviour
             }
             else
             {
-                audioSource.PlayOneShot(openDoor[Random.Range(0, 2)]);
+                audioSource.PlayOneShot(openDoor, 0.25f);
 
                 lmScript.canMove = false;
 
