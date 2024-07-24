@@ -64,6 +64,8 @@
 
 <h3 align="center"><i><b>Project</b></i></h3>
 
+<br>
+
 <p align="center"><b>3D Artist</b></p>
 <p align="center">Enzo de Castro Umehara</p>
 
