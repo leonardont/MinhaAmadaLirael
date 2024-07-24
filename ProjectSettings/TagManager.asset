@@ -3,7 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Terrain
+  - door1
+  - door2
+  - door4
+  - TextBalloon
+  - Glass
+  - Enemy
+  - Key1
+  - Key2
+  - door5
+  - BossAttack
+  - BossObstacle
+  - Boss
+  - PowerUp
   layers:
   - Default
   - TransparentFX
@@ -11,11 +25,11 @@ TagManager:
   - 
   - Water
   - UI
+  - Terrain
+  - LightBypass
+  - ParticleBypass
   - 
-  - 
-  - 
-  - 
-  - 
+  - Obstacles
   - 
   - 
   - 
